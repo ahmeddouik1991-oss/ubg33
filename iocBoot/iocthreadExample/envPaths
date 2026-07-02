@@ -1,0 +1,3 @@
+epicsEnvSet("IOC","iocthreadExample")
+epicsEnvSet("TOP","/Users/ahdo1293/EPICS")
+epicsEnvSet("EPICS_BASE","/Users/ahdo1293/EPICS/epics-base")

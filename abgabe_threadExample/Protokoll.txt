@@ -1,0 +1,73 @@
+Ablaufprotokoll – threadExample
+Name: Ahmed Douik
+PV: ahdo1293:compressExample
+Datum: 02.07.2026
+
+1. Build
+
+Der Build wurde mit make ausgeführt. Die Datei threadExample.c wurde kompiliert und die IOC-Binary threadExample wurde erzeugt.
+
+2. IOC-Start
+
+IOC wurde gestartet mit:
+
+../../bin/darwin-aarch64/threadExample st.cmd
+
+Ausgabe:
+iocRun: All initialization complete
+
+3. IOC-Shell help
+
+epics> help threadExample
+
+Ausgabe:
+threadExample pv-name
+
+4. Start des Kommandos
+
+epics> threadExample ahdo1293:compressExample
+
+Ausgabe:
+threadExample: 'ahdo1293:compressExample' NSAM=3333
+threadExample: subscription active for 'ahdo1293:compressExample'
+
+5. Laufzeitausgabe / Worker-Threads
+
+New worker threadId : 0x74513c2a0
+Worker #1: elements=57 sum=246
+New worker threadId : 0x74513c2a0
+Worker #2: elements=58 sum=253
+New worker threadId : 0x74513c2a0
+Worker #3: elements=59 sum=261
+New worker threadId : 0x74513c2a0
+Worker #4: elements=60 sum=270
+New worker threadId : 0x74513c2a0
+Worker #5: elements=61 sum=270
+New worker threadId : 0x74513c2a0
+Worker #6: elements=62 sum=271
+worker : data is prime : 271 at 2026-07-02T15:35:23.309926Z
+
+6. camonitor-Nachweis
+
+Befehl in zweitem Terminal:
+
+/Users/ahdo1293/EPICS/epics-base/bin/darwin-aarch64/camonitor ahdo1293:compressExample
+
+Ausgabe:
+ahdo1293:compressExample 2026-07-02 15:43:42.053351 275 ...
+ahdo1293:compressExample 2026-07-02 15:43:43.053317 276 ...
+ahdo1293:compressExample 2026-07-02 15:43:44.052319 277 ...
+ahdo1293:compressExample 2026-07-02 15:43:45.053127 278 ...
+ahdo1293:compressExample 2026-07-02 15:43:46.053331 279 ...
+
+Der camonitor zeigt fortlaufende Updates des compress-Records, während threadExample aktiv ist. Damit wird gezeigt, dass der PV-Prozess weiterläuft und nicht durch die Berechnung blockiert wird.
+
+7. Synchronisationsstrategie
+
+Der Event-Callback blockiert nicht. Er liest die Daten mit dbChannelGet() und kopiert sie kurz in einen SharedBuffer. Dieser Zugriff wird mit epicsMutex geschützt.
+
+Nach dem Kopieren wird epicsEventSignal() aufgerufen. Der Dispatcher-Thread wartet blockierend mit epicsEventWait(), es gibt keine Busy-Wait-Schleife.
+
+Der Dispatcher erstellt für jedes Update eine private Heap-Kopie vom Typ WorkerArgs und startet einen Worker-Thread mit epicsThreadPriorityLow.
+
+Der Worker arbeitet ausschließlich auf dieser privaten Kopie, berechnet die Summe, prüft die Summe auf Primzahl, gibt bei Primzahl den Timestamp im ISO-8601-Format aus und gibt den Speicher mit free() wieder frei.

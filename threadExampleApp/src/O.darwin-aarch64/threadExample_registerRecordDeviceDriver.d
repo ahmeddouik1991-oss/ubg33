@@ -1,0 +1,26 @@
+threadExample_registerRecordDeviceDriver.o: \
+  threadExample_registerRecordDeviceDriver.cpp \
+  /Users/ahdo1293/EPICS/epics-base/include/compilerDependencies.h \
+  /Users/ahdo1293/EPICS/epics-base/include/compiler/clang/compilerSpecific.h \
+  /Users/ahdo1293/EPICS/epics-base/include/epicsStdlib.h \
+  /Users/ahdo1293/EPICS/epics-base/include/libComAPI.h \
+  /Users/ahdo1293/EPICS/epics-base/include/os/Darwin/osdStrtod.h \
+  /Users/ahdo1293/EPICS/epics-base/include/epicsTypes.h \
+  /Users/ahdo1293/EPICS/epics-base/include/errMdef.h \
+  /Users/ahdo1293/EPICS/epics-base/include/iocsh.h \
+  /Users/ahdo1293/EPICS/epics-base/include/iocshRegisterCommon.h \
+  /Users/ahdo1293/EPICS/epics-base/include/dbCoreAPI.h \
+  /Users/ahdo1293/EPICS/epics-base/include/registryCommon.h \
+  /Users/ahdo1293/EPICS/epics-base/include/dbStaticLib.h \
+  /Users/ahdo1293/EPICS/epics-base/include/dbFldTypes.h \
+  /Users/ahdo1293/EPICS/epics-base/include/dbBase.h \
+  /Users/ahdo1293/EPICS/epics-base/include/ellLib.h \
+  /Users/ahdo1293/EPICS/epics-base/include/dbDefs.h \
+  /Users/ahdo1293/EPICS/epics-base/include/recSup.h \
+  /Users/ahdo1293/EPICS/epics-base/include/devSup.h \
+  /Users/ahdo1293/EPICS/epics-base/include/drvSup.h \
+  /Users/ahdo1293/EPICS/epics-base/include/link.h \
+  /Users/ahdo1293/EPICS/epics-base/include/cantProceed.h \
+  /Users/ahdo1293/EPICS/epics-base/include/dbJLink.h \
+  /Users/ahdo1293/EPICS/epics-base/include/registryRecordType.h \
+  /Users/ahdo1293/EPICS/epics-base/include/shareLib.h
