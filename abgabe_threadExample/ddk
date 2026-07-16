@@ -1,47 +1,68 @@
-mac15:procServ ahdo1293$ ./procServ --version
-procServ Process Server 2.9.0-dev
-mac15:procServ ahdo1293$ ./procServ --help
-Usage: ./procServ [options] -P <endpoint>... <command args ...>    (-h for help)
-       ./procServ [options] <endpoint> <command args ...>
-<endpoint>:          endpoint to use for control connections
-    <port>           TCP <port> on local/all interfaces (see --allow/--restrict)
-    <iface>:<port>   TCP <port> on specific IP <iface> (numeric)
-    unix:<path>      UNIX domain socket at <path> (@... for abstract)
-<command args ...>   command line to start child process
-Options:
-    --allow               allow control connections from anywhere
-    --autorestartcmd      command to toggle auto restart flag (^ for ctrl)
-    --coresize <n>        set maximum core size for child to <n>
- -c --chdir <dir>         change directory to <dir> before starting child
- -d --debug               debug mode (keeps child in foreground)
- -e --exec <str>          specify child executable (default: arg0 of <command>)
- -f --foreground          keep child in foreground (interactive)
- -g --grace-period <n>    wait <n> seconds for child to shut down
- -h --help                print this message
-    --holdoff <n>         set holdoff time [sec] between child restarts
- -i --ignore <str>        ignore all chars in <str> (^ for ctrl)
- -I --info-file <file>    write instance information to this file
- -k --killcmd <str>       command to kill (reboot) the child (^ for ctrl)
-    --killsig <n>         signal to send to child when killing
- -l --logport <endpoint>  allow log connections through telnet <endpoint>
- -L --logfile <file>      write log to <file>, '-' logs to stdout
-    --logstamp [<str>]    prefix log lines with timestamp [strftime format]
- -n --name <str>          set child's name (default: arg0 of <command>)
-    --noautorestart       do not restart child on exit by default
- -o --oneshot             after child exits, exit the server
- -p --pidfile <str>       write PID file (for server PID)
- -P --port <endpoint>     allow control connections through telnet <endpoint>
- -q --quiet               suppress informational output (server)
-    --restrict            restrict log access to connections from localhost
-    --timefmt <str>       set time format (strftime) to <str>
- -V --version             print program version
- -w --wait                wait for cmd on control connection to start child
- -x --logoutcmd <str>     command to logout client connection (^ for ctrl)
-mac15:procServ ahdo1293$ cd /Users/ahdo1293/EPICS
-mac15:EPICS ahdo1293$ ~/procServ/procServ 20000 ./bin/darwin-aarch64/threadExample iocBoot/iocthreadExample/st.cmd
-/Users/ahdo1293/procServ/procServ: spawning daemon process: 5334
-Warning: No log file and no port for log connections specified.
-mac15:EPICS ahdo1293$ ~/procServ/procServ 20000 bash -c "cd /Users/ahdo1293/EPICS/iocBoot/iocthreadExample && ../../bin/darwin-aarch64/threadExample st.cmd"
+mac15:EPICS ahdo1293$ cd ~/EPICS
+mac15:EPICS ahdo1293$ 
+mac15:EPICS ahdo1293$ ~/procServ/procServ 20000 \
+> ./bin/darwin-aarch64/threadExample \
+> jj
 Caught an exception creating the initial control telnet port: Bad file descriptor
 /Users/ahdo1293/procServ/procServ: Exiting with error code: 48
+mac15:EPICS ahdo1293$ cd ~/EPICS
 mac15:EPICS ahdo1293$ 
+mac15:EPICS ahdo1293$ ~/procServ/procServ 20000 \
+> ./bin/darwin-aarch64/threadExample \
+> iocBoot/iocthreadExample/st.cmd
+Caught an exception creating the initial control telnet port: Bad file descriptor
+/Users/ahdo1293/procServ/procServ: Exiting with error code: 48
+mac15:EPICS ahdo1293$ cd ~/EPICS
+mac15:EPICS ahdo1293$ 
+mac15:EPICS ahdo1293$ ~/procServ/procServ 20000 \
+> ./bin/darwin-aarch64/threadExample \
+> iocBoot/iocthreadExample/st.cmd
+Caught an exception creating the initial control telnet port: Bad file descriptor
+/Users/ahdo1293/procServ/procServ: Exiting with error code: 48
+mac15:EPICS ahdo1293$ ns localhost 20000
+-bash: ns: command not found
+mac15:EPICS ahdo1293$ nc localhost 20000
+@@@ Welcome to procServ (procServ Process Server 2.9.0-dev)
+@@@ Use ^X to kill the child, auto restart mode is ON, use ^T to toggle auto restart
+@@@ procServ server PID: 5579
+@@@ Server startup directory: /Users/ahdo1293/EPICS
+@@@ Child startup directory: /Users/ahdo1293/EPICS
+@@@ Child started as: ./bin/darwin-aarch64/threadExample
+@@@ Child "./bin/darwin-aarch64/threadExample" PID: 5580
+@@@ procServ server started at: Thu Jul 16 17:19:48 2026
+@@@ Child "./bin/darwin-aarch64/threadExample" started at: Thu Jul 16 17:19:48 2026
+@@@ 0 user(s) and 0 logger(s) connected (plus you)
+????"
+
+epics> dbl                                     
+dbl 
+ahdo1293:aSubExample
+ahdo1293:line:b
+ahdo1293:aiExample
+ahdo1293:aiExample1
+ahdo1293:ai1
+ahdo1293:aiExample2
+ahdo1293:ai2
+ahdo1293:aiExample3
+ahdo1293:ai3
+ahdo1293:circle:step
+ahdo1293:circle:period
+ahdo1293:circle:angle
+ahdo1293:line:a
+ahdo1293:circle:x
+ahdo1293:circle:y
+ahdo1293:calcExample
+ahdo1293:calcExample1
+ahdo1293:calc1
+ahdo1293:calcExample2
+ahdo1293:calc2
+ahdo1293:calcExample3
+ahdo1293:calc3
+ahdo1293:circle:tick
+ahdo1293:compressExample
+ahdo1293:threadExample:version
+ahdo1293:primeMessage
+ahdo1293:subExample
+ahdo1293:arrExample
+ahdo1293:xxxExample
+epics>      
