@@ -1,7 +1,4 @@
-configure.ac:14: installing 'build-aux/missing'
-Makefile.am: installing 'build-aux/depcomp'
-mac15:procServ ahdo1293$ autoreconf -fi
-mac15:procServ ahdo1293$ ./configure
+mac15:procServ ahdo1293$ ./configure --disable-doc
 checking build system type... aarch64-apple-darwin25.3.0
 checking host system type... aarch64-apple-darwin25.3.0
 checking for a BSD-compatible install... /usr/bin/install -c
@@ -79,5 +76,43 @@ checking for library containing inet_ntop... none required
 checking for library containing forkpty... none required
 checking for forkpty... yes
 checking for pandoc... no
-configure: error: Documentation not found.  Use --disable-doc to skip installing it, or --enable-doc to generate it
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
+mac15:procServ ahdo1293$ make
+g++ -DPACKAGE_NAME=\"procServ\ Process\ Server\" -DPACKAGE_TARNAME=\"procServ\" -DPACKAGE_VERSION=\"2.9.0-dev\" -DPACKAGE_STRING=\"procServ\ Process\ Server\ 2.9.0-dev\" -DPACKAGE_BUGREPORT=\"tech-talk@aps.anl.gov\" -DPACKAGE_URL=\"https://github.com/ralphlange/procServ\" -DPACKAGE=\"procServ\" -DVERSION=\"2.9.0-dev\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_UTIL_H=1 -DHAVE__BOOL=1 -DHAVE_STDBOOL_H=1 -Drestrict=__restrict__ -DHAVE_FORK=1 -DHAVE_VFORK=1 -DHAVE_WORKING_VFORK=1 -DHAVE_WORKING_FORK=1 -DGETGROUPS_T=gid_t -DHAVE_GETGROUPS=1 -DHAVE_STRFTIME=1 -DHAVE_FORKPTY=1 -I.     -Wall -g -MT procServ.o -MD -MP -MF .deps/procServ.Tpo -c -o procServ.o procServ.cc
+procServ.cc:479:13: warning: 'sprintf' is deprecated: This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead. [-Wdeprecated-declarations]
+  479 |             sprintf(tmp, "[%s] ", timeFormat);
+      |             ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_stdio.h:278:1: note: 'sprintf' has been explicitly marked deprecated here
+  278 | __deprecated_msg("This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead.")
+      | ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h:227:48: note: expanded from macro '__deprecated_msg'
+  227 |         #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+      |                                                       ^
+procServ.cc:646:13: warning: 'sprintf' is deprecated: This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead. [-Wdeprecated-declarations]
+  646 |             sprintf( buf, "@@@ Got a sigPipe signal: Did the child close its tty?" NL);
+      |             ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_stdio.h:278:1: note: 'sprintf' has been explicitly marked deprecated here
+  278 | __deprecated_msg("This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead.")
+      | ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h:227:48: note: expanded from macro '__deprecated_msg'
+  227 |         #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+      |                                                       ^
+2 warnings generated.
+mv -f .deps/procServ.Tpo .deps/procServ.Po
+g++ -DPACKAGE_NAME=\"procServ\ Process\ Server\" -DPACKAGE_TARNAME=\"procServ\" -DPACKAGE_VERSION=\"2.9.0-dev\" -DPACKAGE_STRING=\"procServ\ Process\ Server\ 2.9.0-dev\" -DPACKAGE_BUGREPORT=\"tech-talk@aps.anl.gov\" -DPACKAGE_URL=\"https://github.com/ralphlange/procServ\" -DPACKAGE=\"procServ\" -DVERSION=\"2.9.0-dev\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_UTIL_H=1 -DHAVE__BOOL=1 -DHAVE_STDBOOL_H=1 -Drestrict=__restrict__ -DHAVE_FORK=1 -DHAVE_VFORK=1 -DHAVE_WORKING_VFORK=1 -DHAVE_WORKING_FORK=1 -DGETGROUPS_T=gid_t -DHAVE_GETGROUPS=1 -DHAVE_STRFTIME=1 -DHAVE_FORKPTY=1 -I.     -Wall -g -MT connectionItem.o -MD -MP -MF .deps/connectionItem.Tpo -c -o connectionItem.o connectionItem.cc
+mv -f .deps/connectionItem.Tpo .deps/connectionItem.Po
+g++ -DPACKAGE_NAME=\"procServ\ Process\ Server\" -DPACKAGE_TARNAME=\"procServ\" -DPACKAGE_VERSION=\"2.9.0-dev\" -DPACKAGE_STRING=\"procServ\ Process\ Server\ 2.9.0-dev\" -DPACKAGE_BUGREPORT=\"tech-talk@aps.anl.gov\" -DPACKAGE_URL=\"https://github.com/ralphlange/procServ\" -DPACKAGE=\"procServ\" -DVERSION=\"2.9.0-dev\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_UTIL_H=1 -DHAVE__BOOL=1 -DHAVE_STDBOOL_H=1 -Drestrict=__restrict__ -DHAVE_FORK=1 -DHAVE_VFORK=1 -DHAVE_WORKING_VFORK=1 -DHAVE_WORKING_FORK=1 -DGETGROUPS_T=gid_t -DHAVE_GETGROUPS=1 -DHAVE_STRFTIME=1 -DHAVE_FORKPTY=1 -I.     -Wall -g -MT acceptFactory.o -MD -MP -MF .deps/acceptFactory.Tpo -c -o acceptFactory.o acceptFactory.cc
+mv -f .deps/acceptFactory.Tpo .deps/acceptFactory.Po
+g++ -DPACKAGE_NAME=\"procServ\ Process\ Server\" -DPACKAGE_TARNAME=\"procServ\" -DPACKAGE_VERSION=\"2.9.0-dev\" -DPACKAGE_STRING=\"procServ\ Process\ Server\ 2.9.0-dev\" -DPACKAGE_BUGREPORT=\"tech-talk@aps.anl.gov\" -DPACKAGE_URL=\"https://github.com/ralphlange/procServ\" -DPACKAGE=\"procServ\" -DVERSION=\"2.9.0-dev\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_UTIL_H=1 -DHAVE__BOOL=1 -DHAVE_STDBOOL_H=1 -Drestrict=__restrict__ -DHAVE_FORK=1 -DHAVE_VFORK=1 -DHAVE_WORKING_VFORK=1 -DHAVE_WORKING_FORK=1 -DGETGROUPS_T=gid_t -DHAVE_GETGROUPS=1 -DHAVE_STRFTIME=1 -DHAVE_FORKPTY=1 -I.     -Wall -g -MT clientFactory.o -MD -MP -MF .deps/clientFactory.Tpo -c -o clientFactory.o clientFactory.cc
+mv -f .deps/clientFactory.Tpo .deps/clientFactory.Po
+g++ -DPACKAGE_NAME=\"procServ\ Process\ Server\" -DPACKAGE_TARNAME=\"procServ\" -DPACKAGE_VERSION=\"2.9.0-dev\" -DPACKAGE_STRING=\"procServ\ Process\ Server\ 2.9.0-dev\" -DPACKAGE_BUGREPORT=\"tech-talk@aps.anl.gov\" -DPACKAGE_URL=\"https://github.com/ralphlange/procServ\" -DPACKAGE=\"procServ\" -DVERSION=\"2.9.0-dev\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_UTIL_H=1 -DHAVE__BOOL=1 -DHAVE_STDBOOL_H=1 -Drestrict=__restrict__ -DHAVE_FORK=1 -DHAVE_VFORK=1 -DHAVE_WORKING_VFORK=1 -DHAVE_WORKING_FORK=1 -DGETGROUPS_T=gid_t -DHAVE_GETGROUPS=1 -DHAVE_STRFTIME=1 -DHAVE_FORKPTY=1 -I.     -Wall -g -MT processFactory.o -MD -MP -MF .deps/processFactory.Tpo -c -o processFactory.o processFactory.cc
+mv -f .deps/processFactory.Tpo .deps/processFactory.Po
+gcc -DPACKAGE_NAME=\"procServ\ Process\ Server\" -DPACKAGE_TARNAME=\"procServ\" -DPACKAGE_VERSION=\"2.9.0-dev\" -DPACKAGE_STRING=\"procServ\ Process\ Server\ 2.9.0-dev\" -DPACKAGE_BUGREPORT=\"tech-talk@aps.anl.gov\" -DPACKAGE_URL=\"https://github.com/ralphlange/procServ\" -DPACKAGE=\"procServ\" -DVERSION=\"2.9.0-dev\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_UTIL_H=1 -DHAVE__BOOL=1 -DHAVE_STDBOOL_H=1 -Drestrict=__restrict__ -DHAVE_FORK=1 -DHAVE_VFORK=1 -DHAVE_WORKING_VFORK=1 -DHAVE_WORKING_FORK=1 -DGETGROUPS_T=gid_t -DHAVE_GETGROUPS=1 -DHAVE_STRFTIME=1 -DHAVE_FORKPTY=1 -I.     -Wall -g -MT libtelnet.o -MD -MP -MF .deps/libtelnet.Tpo -c -o libtelnet.o libtelnet.c
+mv -f .deps/libtelnet.Tpo .deps/libtelnet.Po
+g++  -Wall -g   -o procServ procServ.o connectionItem.o acceptFactory.o clientFactory.o processFactory.o libtelnet.o 
+mac15:procServ ahdo1293$ ./procServ --version
+procServ Process Server 2.9.0-dev
 mac15:procServ ahdo1293$ 
